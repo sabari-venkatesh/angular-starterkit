@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let location of locations" [class.selected]="location === selectedLocation" (click)="onSelect(location)">
+    {{location.city}}
+  </li>
+</ul>
+
+<app-contact-detail [location]="selectedLocation"></app-contact-detail>
