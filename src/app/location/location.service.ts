@@ -13,4 +13,8 @@ export class LocationService {
   getLocations(): Observable<Location[]> {
     return of(LOCATIONS);
   }
+
+  getLocation(city: string): Observable<Location> {
+    return of(LOCATIONS.find(location => location.city === city));
+  }
 }

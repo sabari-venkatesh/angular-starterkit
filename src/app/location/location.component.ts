@@ -3,7 +3,7 @@ import { Location } from './location';
 import { LocationService } from './location.service';
 
 @Component({
-  selector: 'app-contact',
+  selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css']
 })

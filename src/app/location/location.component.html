@@ -1,7 +1,7 @@
 <ul class="locations">
-  <li class="location" *ngFor="let location of locations" [class.is-selected]="location === selectedLocation" (click)="onSelect(location)">
-    {{location.city}}
+  <li *ngFor="let location of locations">
+    <a class="location" [class.is-selected]="location === selectedLocation" (click)="onSelect(location)" routerLink="/locations/{{location.city}}">
+      {{location.city}}
+    </a>
   </li>
 </ul>
-
-<app-contact-detail [location]="selectedLocation"></app-contact-detail>
