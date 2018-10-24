@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ContactComponent } from '../contact/contact.component';
+import { LocationComponent } from '../location/location.component';
 
 @Component({
   selector: 'app-contact-detail',
@@ -8,7 +8,7 @@ import { ContactComponent } from '../contact/contact.component';
 })
 export class ContactDetailComponent implements OnInit {
 
-  @Input() location: ContactComponent;
+  @Input() location: LocationComponent;
 
   constructor() { }
 
