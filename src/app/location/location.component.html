@@ -1,5 +1,5 @@
-<ul>
-  <li *ngFor="let location of locations" [class.selected]="location === selectedLocation" (click)="onSelect(location)">
+<ul class="locations">
+  <li class="location" *ngFor="let location of locations" [class.is-selected]="location === selectedLocation" (click)="onSelect(location)">
     {{location.city}}
   </li>
 </ul>

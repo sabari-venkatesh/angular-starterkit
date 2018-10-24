@@ -1,0 +1,21 @@
+.locations {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.location {
+  cursor: pointer;
+  padding: 10px;
+  min-width: 100px;
+  background-color: #BDBDBD;
+  color: #fff;
+  text-align: center;
+  margin-right: 1px;
+}
+
+.location.is-selected {
+  background-color: #607D8B;
+}

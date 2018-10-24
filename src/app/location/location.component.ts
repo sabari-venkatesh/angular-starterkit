@@ -10,19 +10,30 @@ import { LocationService } from './location.service';
 export class LocationComponent implements OnInit {
 
   locations: Location[];
-  selectedLocation: LocationComponent;
+  errorMessage: any;
+  selectedLocation: Location;
 
   constructor(private locationService: LocationService) { }
 
   ngOnInit() {
     this.getLocations();
+    this.locationService.getLocations()
+      .subscribe(
+        locations => this.selectedLocation = locations[0],
+        error => this.errorMessage = error
+      );
   }
 
-  onSelect(location: LocationComponent): void {
+  onSelect(location: Location): void {
     this.selectedLocation = location;
   }
 
   getLocations(): void {
-    this.locations = this.locationService.getLocations();
+    this.locationService.getLocations()
+      .subscribe(
+        locations => this.locations = locations,
+        error => this.errorMessage = error
+      );
+    console.log(this.errorMessage);
   }
 }
