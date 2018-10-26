@@ -1,0 +1,8 @@
+<h1>Services List</h1>
+<ul class="services">
+  <li *ngFor="let service of services$ | async" [class.selected]="service.name === selectedLink">
+    <a [routerLink]="['/service', service.name]">
+      {{ service.name }}
+    </a>
+  </li>
+</ul>
