@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Service } from './service';
-import { SERVICES } from './mock-services';
+import { Injectable, OnInit } from '@angular/core';
+import { MENU } from '../menu/mock-menu';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -8,13 +7,15 @@ import { Observable, of } from 'rxjs';
 })
 
 export class ServicesService {
-  constructor() { }
 
-  getServices(): Observable<Service[]> {
-    return of(SERVICES);
+  currentMenu: any = {};
+
+  constructor() {
   }
 
-  getService(name: string): Observable<Service> {
-    return of(SERVICES.find(service => service.name === name));
+  getService(name: string, parent: string): Observable<{}> {
+    this.currentMenu = MENU.find(item => item.name.toLowerCase() === parent).children;
+    return of(this.currentMenu.find(service => service.path === name));
   }
+
 }

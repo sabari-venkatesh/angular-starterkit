@@ -1,5 +1,16 @@
 <nav>
-  <a routerLink="/home" routerLinkActive="is-active">Home</a>
-  <a routerLink="/about" routerLinkActive="is-active">About</a>
-  <a routerLink="/services" routerLinkActive="is-active">Services</a>
+  <ul>
+    <li *ngFor="let menuitem of menu$ | async">
+      <a [routerLink]="menuitem.path">
+        {{menuitem.name}}
+      </a>
+      <ul *ngIf="menuitem.children.length">
+        <li *ngFor="let submenuitem of menuitem.children">
+          <a [routerLink]="[menuitem.path, submenuitem.path]">
+            {{submenuitem.name}}
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </nav>

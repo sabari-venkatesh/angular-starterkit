@@ -8,23 +8,23 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-services-list',
   templateUrl: './services-list.component.html',
-  styleUrls: ['./services-list.component.css']
+  styleUrls: ['./services-list.component.scss']
 })
 export class ServicesListComponent implements OnInit {
-  services$: Observable<Service[]>;
-  selectedLink: string;
+  // services$: Observable<Service[]>;
+  // selectedLink: string;
 
   constructor(
-    private service: ServicesService,
-    private route: ActivatedRoute
+    // private service: ServicesService,
+    // private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.services$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedLink = params.get('name');
-        return this.service.getServices();
-      })
-    );
+    // this.services$ = this.route.paramMap.pipe(
+    //   switchMap(params => {
+    //     this.selectedLink = params.get('name');
+    //     return this.service.getServices();
+    //   })
+    // );
   }
 }

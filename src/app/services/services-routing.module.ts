@@ -6,7 +6,7 @@ import { ServicesDetailComponent } from './services-detail/services-detail.compo
 
 const serviceRoutes: Routes = [
   { path: 'services', component: ServicesListComponent },
-  { path: 'service/:name', component: ServicesDetailComponent }
+  { path: 'services/:name', component: ServicesDetailComponent, data: {routeName: 'services'} }
 ];
 
 @NgModule({

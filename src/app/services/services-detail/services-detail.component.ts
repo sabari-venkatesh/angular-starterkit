@@ -3,7 +3,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ServicesService } from '../services.service';
 import { Observable } from 'rxjs';
-import { Service } from '../service';
 
 @Component({
   selector: 'app-services-detail',
@@ -12,20 +11,22 @@ import { Service } from '../service';
 })
 export class ServicesDetailComponent implements OnInit {
 
-  service$: Observable<Service>;
+  service$: Observable<{}>;
+  parentMenu: string;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private service: ServicesService
   ) { }
 
   ngOnInit() {
+    this.route
+      .data
+      .subscribe(route => this.parentMenu = route.routeName);
     this.service$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.service.getService(params.get('name')))
+        this.service.getService(params.get('name'), this.parentMenu))
     );
-    console.log(this.service$);
   }
 
 }
