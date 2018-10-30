@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Menu } from './menu';
-import { MENU } from './mock-menu';
+import { MENU } from '../mocks/menu';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,6 @@ export class MenuService {
   constructor() { }
 
   getMenu(): Observable<Menu[]> {
-    return of(MENU);
+    return of(MENU.sort((a, b) => a.order - b.order)); // sort first level menuitems
   }
 }

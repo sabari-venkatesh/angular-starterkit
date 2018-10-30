@@ -1,10 +1,11 @@
 <nav>
   <ul>
-    <li *ngFor="let menuitem of menu$ | async">
+    <!-- <li *ngFor="let menuitem of menu$ | async"> -->
+    <li *ngFor="let menuitem of menu$">
       <a [routerLink]="menuitem.path">
         {{menuitem.name}}
       </a>
-      <ul *ngIf="menuitem.children.length">
+      <ul *ngIf="menuitem?.children">
         <li *ngFor="let submenuitem of menuitem.children">
           <a [routerLink]="[menuitem.path, submenuitem.path]">
             {{submenuitem.name}}

@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { MENU } from '../menu/mock-menu';
+import { MENU } from '../mocks/menu';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

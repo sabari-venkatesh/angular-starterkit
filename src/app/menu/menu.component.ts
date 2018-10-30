@@ -12,18 +12,28 @@ import { Menu } from './menu';
 })
 export class MenuComponent implements OnInit {
 
-  menu$: Observable<Menu[]>;
+  menu$: Menu[];
   constructor(
     private service: MenuService,
     private route: ActivatedRoute
   ) { }
 
+  sortMenu(): void {
+    this.menu$.forEach((item) => {
+      if (item.children) {
+        item.children.sort((a, b) => a.order - b.order); // sort submenu by order
+      }
+    });
+  }
+
   ngOnInit() {
-    this.menu$ = this.route.paramMap.pipe(
+    this.route.paramMap.pipe(
       switchMap(params => {
         return this.service.getMenu();
       })
-    );
+    ).subscribe((menu) => {
+      this.menu$ = menu;
+      this.sortMenu();
+    });
   }
-
 }
