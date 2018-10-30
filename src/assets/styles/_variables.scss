@@ -1,0 +1,45 @@
+@import "./mixins/index.scss";
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+
+$colors: () !default;
+
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo
+  ),
+  $colors
+);
+
+$primary:       $blue !default;
+$secondary:     $indigo !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  color-yiq($secondary)
+  ), $theme-colors
+);
+
+$font: (
+  size: 18px,
+  leading: 1.6,
+  family: (
+    body: (Merriweather, Georgia, serif),
+    head: (Roboto, Helvetica, sans-serif),
+    code: (Menlo, Andale Mono, monospace)
+  )
+);
+
+$var-maps: (color: $theme-colors);
+$props: (
+  background-color: color,
+  color: color,
+  font-family: (font, family),
+  font-size: (font, size),
+  font-weight: (font, weight),
+  line-height: (font, leading)
+);

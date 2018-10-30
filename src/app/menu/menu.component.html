@@ -1,13 +1,13 @@
-<nav>
-  <ul>
+<nav class="navbar" @flyIn>
+  <ul class="nav">
     <!-- <li *ngFor="let menuitem of menu$ | async"> -->
-    <li *ngFor="let menuitem of menu$">
-      <a [routerLink]="menuitem.path">
+    <li class="nav-item" *ngFor="let menuitem of menu$">
+      <a class="nav-link" [routerLink]="menuitem.path">
         {{menuitem.name}}
       </a>
-      <ul *ngIf="menuitem?.children">
-        <li *ngFor="let submenuitem of menuitem.children">
-          <a [routerLink]="[menuitem.path, submenuitem.path]">
+      <ul class="nav-child" *ngIf="menuitem?.children">
+        <li class="nav-item" *ngFor="let submenuitem of menuitem.children">
+          <a class="nav-link" [routerLink]="[menuitem.path, submenuitem.path]">
             {{submenuitem.name}}
           </a>
         </li>
