@@ -1,6 +1,7 @@
 # Grids
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was built to experiment angular routing and css4 properties
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
 
