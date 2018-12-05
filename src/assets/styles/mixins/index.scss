@@ -31,12 +31,12 @@
   #{$prop}: $var-output;
 }
 
-@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+@function color-yiq($color, $dark: #222, $light: #fff) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-  @if ($yiq >=$yiq-contrasted-threshold) {
+  @if ($yiq >=128) {
     @return $dark;
   }
   @else {

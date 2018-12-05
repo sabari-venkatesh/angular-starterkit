@@ -1,4 +1,5 @@
 <div *ngIf="service$ | async as service">
+  <app-breadcrumb></app-breadcrumb>
   <h1>{{service.title}}</h1>
   <span>{{service.id}}</span>
 </div>

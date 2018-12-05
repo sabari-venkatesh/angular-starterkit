@@ -5,11 +5,13 @@ import { ServicesRoutingModule } from './services-routing.module';
 
 import { ServicesListComponent } from './services-list/services-list.component';
 import { ServicesDetailComponent } from './services-detail/services-detail.component';
+import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    ServicesRoutingModule
+    ServicesRoutingModule,
+    BreadcrumbModule
   ],
   declarations: [
     ServicesListComponent,

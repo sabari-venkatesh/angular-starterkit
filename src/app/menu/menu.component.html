@@ -1,13 +1,14 @@
-<nav class="navbar" @flyIn>
-  <ul class="nav">
+<nav class="navbar" @flyIn [attr.aria-label]="'Mythical University'">
+  <ul class="nav" role="menubar" [attr.aria-label]="'Mythical University'">
     <!-- <li *ngFor="let menuitem of menu$ | async"> -->
-    <li class="nav-item" *ngFor="let menuitem of menu$">
-      <a class="nav-link" [routerLink]="menuitem.path">
+    <li class="nav-item" *ngFor="let menuitem of menu$; first as isFirst;" role="none">
+      <a class="nav-link" [routerLink]="menuitem.path" role="menuitem" aria-haspopup="true" aria-expanded="false"
+        tabindex="{{isFirst ? 0 : -1}}">
         {{menuitem.name}}
       </a>
-      <ul class="nav-child" *ngIf="menuitem?.children">
-        <li class="nav-item" *ngFor="let submenuitem of menuitem.children">
-          <a class="nav-link" [routerLink]="[menuitem.path, submenuitem.path]">
+      <ul class="nav-child" *ngIf="menuitem?.children" role="menu" [attr.aria-label]="menuitem.name">
+        <li class="nav-item" *ngFor="let submenuitem of menuitem.children" role="none">
+          <a class="nav-link" [routerLink]="[menuitem.path, submenuitem.path]" role="menuitem" tabindex="-1">
             {{submenuitem.name}}
           </a>
         </li>
@@ -15,3 +16,7 @@
     </li>
   </ul>
 </nav>
+
+<button class="btn btn-primary">
+  Welcome
+</button>

@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~normalize.css/normalize.css";
 @import "./assets/styles/variables";
 @import "./assets/styles/mixins/index.scss";
-
+// @import "./assets/styles/trashy.debug.css";
 :root {
   // for each variable map
   @each $var-map-name,
@@ -16,13 +17,31 @@
         @each $var-n,
         $val-n in $val {
           // do the definition
-          #{--$var-map-name}-#{$var}-#{$var-n}: $val-n;
+          --#{$var-map-name}-#{$var}-#{$var-n}: $val-n;
         }
       }
       @else {
         // do the definition
         #{--$var-map-name}-#{$var}: $val;
       }
+    }
+  }
+}
+
+@each $color,
+$value in $theme-colors {
+  .btn-#{$color} {
+    background-color: $value;
+    border: 1px solid $value;
+    color: color-yiq($value);
+    &:hover {
+      $color: darken($value, 10%);
+      background-color: $value;
+      color: color-yiq($value);
+      border-color: darken($value, 15%);
+    }
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
     }
   }
 }

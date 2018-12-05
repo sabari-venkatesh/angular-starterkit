@@ -13,14 +13,14 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $blue !default;
+$primary:       #fa5400 !default;
 $secondary:     $indigo !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge(
   (
     "primary":    $primary,
-    "secondary":  color-yiq($secondary)
+    "secondary":  $secondary
   ), $theme-colors
 );
 
